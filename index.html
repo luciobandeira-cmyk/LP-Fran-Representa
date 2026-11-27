@@ -2115,8 +2115,8 @@ var ICON_PLAY='<svg class="ic" aria-hidden="true" viewBox="0 0 256 256" fill="cu
       var a=Math.abs(d), sg=d<0?-1:1;
       var x=d===0?0:sg*(sp+(a-1)*sp*.72), z=-a*150, ry=d===0?0:-sg*30, sc=d===0?1:Math.max(.7,1-a*.08);
       it.style.transform='translateX('+x+'px) translateZ('+z+'px) rotateY('+ry+'deg) scale('+sc+')';
-      it.style.zIndex=50-a; it.style.opacity=a>3?0:(a===0?1:1-a*.17);
-      it.style.filter=a?'saturate(.85) brightness(.97)':'none';
+      it.style.zIndex=50-a; it.style.opacity=a>3?0:1;
+      it.style.filter=a?'saturate('+(1-a*.15)+') brightness('+(1-a*.13)+')':'none';
       it.style.visibility=a>3?'hidden':'visible';
       it.classList.toggle('is-on',d===0); it.setAttribute('aria-hidden',d===0?'false':'true');
       [].forEach.call(it.querySelectorAll('a.cv-go,a.cv-pdf'),function(l){l.tabIndex=d===0?0:-1;});

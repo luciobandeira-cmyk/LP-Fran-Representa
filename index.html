@@ -1203,7 +1203,7 @@ header.open .nav ul>li:not(.nav-m-cta):not(.nav-m-social)>a::before{content:none
 
 /* v2: catálogos com capas (mockup de revista) */
 .cv-feat-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 56px;margin-bottom:64px}
-.cf{position:relative;margin-top:8px;width:min(1320px,96vw);left:50%;transform:translateX(-50%);overflow:hidden;padding-top:56px;border-top:1px solid var(--line);perspective:1600px;user-select:none;touch-action:pan-y}
+.cf{position:relative;margin-top:8px;width:min(1320px,96vw);margin-left:calc(50% - min(660px,48vw));overflow:hidden;padding-top:56px;border-top:1px solid var(--line);perspective:1600px;user-select:none;touch-action:pan-y}
 .cf-stage{position:relative;height:560px;transform-style:preserve-3d}
 .cf .cf-item{position:absolute;left:50%;top:0;width:300px;margin-left:-150px;padding:28px 22px 26px;border-radius:20px;background:var(--paper);border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(42,2,30,.45);transform-origin:50% 50%;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .6s,filter .6s;will-change:transform}
 .cf .cf-item:not(.is-on){cursor:pointer}

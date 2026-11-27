@@ -1284,6 +1284,7 @@ header.open .nav ul>li:not(.nav-m-cta):not(.nav-m-social)>a::before{content:none
 .bk-none[hidden]{display:none}
 .bk-none span{font-size:1.8rem;opacity:.6}.bk-none small{color:rgba(255,253,249,.75);max-width:32ch}
 .bk-dl.cv-go{border-color:var(--paper);color:var(--paper)}.bk-dl.cv-go:hover{background:var(--paper);color:var(--plum)}
+.bk-act [hidden],.bk-mosaic img[hidden],.bk-v[hidden]{display:none!important}
 .bk-act{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:6px}
 .dark .bk .mt-soon{border-color:rgba(255,253,249,.4);color:rgba(255,253,249,.8)}
 @media (max-width:860px){.bk{grid-template-columns:1fr;gap:56px}}
@@ -2073,7 +2074,9 @@ var ICON_PLAY='<svg class="ic" aria-hidden="true" viewBox="0 0 256 256" fill="cu
   function setLink(k,url){var a=$('bkDl'+k), s=$('bkSoon'+k); if(url){a.href=url;a.hidden=false;s.hidden=true;}else{a.hidden=true;s.hidden=false;}}
   function pick(b){
     var seen={}, out=[];
-    [].forEach.call(document.querySelectorAll('#lnGrid .ln[data-b="'+b+'"] img, .cv-hit[data-goto="'+b+'"] img'),function(i){var u=i.getAttribute('src'); if(u&&!seen[u]){seen[u]=1;out.push(u);}});
+    function add(i){var u=i.getAttribute('src'); if(u&&!seen[u]){seen[u]=1;out.push(u);}}
+    [].forEach.call(document.querySelectorAll('#lnGrid .ln[data-b="'+b+'"] img'),add);
+    if(out.length<4) [].forEach.call(document.querySelectorAll('.cv-hit[data-goto="'+b+'"] img'),add);
     return out.slice(0,4);
   }
   function show(f){

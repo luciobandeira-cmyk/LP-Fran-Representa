@@ -1267,13 +1267,23 @@ header.open .nav ul>li:not(.nav-m-cta):not(.nav-m-social)>a::before{content:none
 .bk-mosaic{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:100%}
 .bk-mosaic img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:var(--r-card)}
 .bk-videos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:100%}
-.bk-v:first-child{grid-column:1/-1;aspect-ratio:16/9}
+.bk-v.is-wide{grid-column:1/-1;aspect-ratio:16/9}
 .bk-v{position:relative;padding:0;border:0;border-radius:var(--r-card);overflow:hidden;aspect-ratio:1;cursor:pointer;background:#000}
 .bk-v img,.bk-v video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .bk-play{position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:rgba(255,253,249,.92);box-shadow:0 10px 30px -10px rgba(0,0,0,.6);transition:transform .3s}
 .bk-play::after{content:"";position:absolute;left:22px;top:17px;border-style:solid;border-width:11px 0 11px 17px;border-color:transparent transparent transparent var(--plum)}
 .bk-v:hover .bk-play{transform:scale(1.08)}
 .bk-v.playing .bk-play{display:none}
+.bk-chips .ln-chip{background:transparent;border-color:rgba(255,253,249,.35);color:var(--paper)}
+.bk-chips .ln-chip:hover{border-color:var(--paper);color:var(--paper)}
+.bk-chips .ln-chip[aria-pressed="true"]{background:var(--paper);border-color:var(--paper);color:var(--plum)}
+.bk-of{color:rgba(255,253,249,.7);font-weight:500}
+.bk-mosaic.n1{grid-template-columns:1fr}.bk-mosaic.n1 img{aspect-ratio:4/3}
+.bk-mosaic.n3 img:first-child{grid-column:1/-1;aspect-ratio:2/1}
+.bk-none{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;width:100%;aspect-ratio:16/10;border:1px dashed rgba(255,253,249,.35);border-radius:var(--r-card);color:var(--paper);text-align:center;padding:24px}
+.bk-none[hidden]{display:none}
+.bk-none span{font-size:1.8rem;opacity:.6}.bk-none small{color:rgba(255,253,249,.75);max-width:32ch}
+.bk-dl.cv-go{border-color:var(--paper);color:var(--paper)}.bk-dl.cv-go:hover{background:var(--paper);color:var(--plum)}
 .bk-act{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:6px}
 .dark .bk .mt-soon{border-color:rgba(255,253,249,.4);color:rgba(255,253,249,.8)}
 @media (max-width:860px){.bk{grid-template-columns:1fr;gap:56px}}
@@ -1360,20 +1370,22 @@ header.open .nav ul>li:not(.nav-m-cta):not(.nav-m-social)>a::before{content:none
       <h2 id="t-bk">Banco de imagens e <b>vídeos</b></h2>
       <p class="lead">Fotos e vídeos das marcas para divulgar na loja, no WhatsApp e nas redes.</p>
     </div>
-    <div class="bk">
+    <div class="ln-chips bk-chips" role="group" aria-label="Escolher a marca do banco de imagens"><button class="ln-chip" type="button" aria-pressed="true" data-f="*">Todas</button><button class="ln-chip" type="button" aria-pressed="false" data-f="Grilazer" translate="no">Grilazer</button><button class="ln-chip" type="button" aria-pressed="false" data-f="MTA" translate="no">MTA</button><button class="ln-chip" type="button" aria-pressed="false" data-f="Mimo Style" translate="no">Mimo Style</button><button class="ln-chip" type="button" aria-pressed="false" data-f="Zippy" translate="no">Zippy</button><button class="ln-chip" type="button" aria-pressed="false" data-f="TermoPro" translate="no">TermoPro</button><button class="ln-chip" type="button" aria-pressed="false" data-f="Marcamix" translate="no">Marcamix</button><button class="ln-chip" type="button" aria-pressed="false" data-f="Alumix" translate="no">Alumix</button><button class="ln-chip" type="button" aria-pressed="false" data-f="Gulê" translate="no">Gulê</button><button class="ln-chip" type="button" aria-pressed="false" data-f="Tutaz" translate="no">Tutaz</button></div><script type="application/json" id="bkLinks">{"Grilazer": {"i": "", "v": ""}, "MTA": {"i": "", "v": ""}, "Mimo Style": {"i": "", "v": ""}, "Zippy": {"i": "", "v": ""}, "TermoPro": {"i": "", "v": ""}, "Marcamix": {"i": "", "v": ""}, "Alumix": {"i": "", "v": ""}, "Gulê": {"i": "", "v": ""}, "Tutaz": {"i": "", "v": ""}}</script>
+    <div class="bk" id="bkBox" aria-live="polite">
       <div class="bk-col">
         <div class="bk-mosaic" aria-hidden="true"><img src="assets/img/ln-paes.jpg" alt="" width="600" height="800" loading="lazy"><img src="assets/img/grilazer-card.jpg" alt="" width="720" height="900" loading="lazy"><img src="assets/img/termopro-card.jpg" alt="" width="720" height="900" loading="lazy"><img src="assets/img/zippy-cozinha.jpg" alt="" width="720" height="900" loading="lazy"></div>
-        <h3>Banco de imagens</h3><p>Fotos de produto e de ambiente, separadas por marca e por linha.</p>
-        <div class="bk-act"><span class="mt-soon">Em breve</span><a class="mt-wa" href="https://wa.me/5546988179777?text=Ol%C3%A1%2C%20Fran!%20Vim%20pela%20p%C3%A1gina%20e%20quero%20conhecer%20as%20condi%C3%A7%C3%B5es%20para%20a%20minha%20loja." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M186.68,146.63l-32-16a6,6,0,0,0-6,.38L133,141.46A42.49,42.49,0,0,1,114.54,123L125,107.33a6,6,0,0,0,.38-6l-16-32A6,6,0,0,0,104,66a38,38,0,0,0-38,38,86.1,86.1,0,0,0,86,86,38,38,0,0,0,38-38A6,6,0,0,0,186.68,146.63ZM152,178a74.09,74.09,0,0,1-74-74,26,26,0,0,1,22.42-25.75l12.66,25.32-10.39,15.58a6,6,0,0,0-.54,5.63,54.43,54.43,0,0,0,29.07,29.07,6,6,0,0,0,5.63-.54l15.58-10.39,25.32,12.66A26,26,0,0,1,152,178ZM128,26A102,102,0,0,0,38.35,176.69L26.73,211.56a14,14,0,0,0,17.71,17.71l34.87-11.62A102,102,0,1,0,128,26Zm0,192a90,90,0,0,1-45.06-12.08,6.09,6.09,0,0,0-3-.81,6.2,6.2,0,0,0-1.9.31L40.65,217.88a2,2,0,0,1-2.53-2.53L50.58,178a6,6,0,0,0-.5-4.91A90,90,0,1,1,128,218Z"/></svg>Falar com a Fran</a></div>
+        <h3>Banco de imagens <span class="bk-of" id="bkOfI" translate="no"></span></h3><p id="bkTxtI">Fotos de produto e de ambiente, separadas por marca e por linha.</p>
+        <div class="bk-act"><span class="mt-soon" id="bkSoonI">Em breve</span><a class="cv-go bk-dl" id="bkDlI" href="#" target="_blank" rel="noopener" hidden>Baixar fotos</a><a class="mt-wa" href="https://wa.me/5546988179777?text=Ol%C3%A1%2C%20Fran!%20Vim%20pela%20p%C3%A1gina%20e%20quero%20conhecer%20as%20condi%C3%A7%C3%B5es%20para%20a%20minha%20loja." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M186.68,146.63l-32-16a6,6,0,0,0-6,.38L133,141.46A42.49,42.49,0,0,1,114.54,123L125,107.33a6,6,0,0,0,.38-6l-16-32A6,6,0,0,0,104,66a38,38,0,0,0-38,38,86.1,86.1,0,0,0,86,86,38,38,0,0,0,38-38A6,6,0,0,0,186.68,146.63ZM152,178a74.09,74.09,0,0,1-74-74,26,26,0,0,1,22.42-25.75l12.66,25.32-10.39,15.58a6,6,0,0,0-.54,5.63,54.43,54.43,0,0,0,29.07,29.07,6,6,0,0,0,5.63-.54l15.58-10.39,25.32,12.66A26,26,0,0,1,152,178ZM128,26A102,102,0,0,0,38.35,176.69L26.73,211.56a14,14,0,0,0,17.71,17.71l34.87-11.62A102,102,0,1,0,128,26Zm0,192a90,90,0,0,1-45.06-12.08,6.09,6.09,0,0,0-3-.81,6.2,6.2,0,0,0-1.9.31L40.65,217.88a2,2,0,0,1-2.53-2.53L50.58,178a6,6,0,0,0-.5-4.91A90,90,0,1,1,128,218Z"/></svg>Falar com a Fran</a></div>
       </div>
       <div class="bk-col">
         <div class="bk-videos">
-          <button class="bk-v" type="button" data-v="0" aria-label="Assistir: chaleira de ferro MTA"><img src="assets/img/vid-1.jpg" alt="" width="1280" height="720" loading="lazy"><span class="bk-play" aria-hidden="true"></span></button>
-          <button class="bk-v" type="button" data-v="1" aria-label="Assistir: panela de pressão MTA"><img src="assets/img/vid-2.jpg" alt="" width="1280" height="720" loading="lazy"><span class="bk-play" aria-hidden="true"></span></button>
-          <button class="bk-v" type="button" data-v="2" aria-label="Assistir: caçarolas Mimo Style"><img src="assets/img/vid-3.jpg" alt="" width="1280" height="720" loading="lazy"><span class="bk-play" aria-hidden="true"></span></button>
+          <button class="bk-v" type="button" data-v="0" data-b="MTA" aria-label="Assistir: chaleira de ferro MTA"><img src="assets/img/vid-1.jpg" alt="" width="1280" height="720" loading="lazy"><span class="bk-play" aria-hidden="true"></span></button>
+          <button class="bk-v" type="button" data-v="1" data-b="MTA" aria-label="Assistir: panela de pressão MTA"><img src="assets/img/vid-2.jpg" alt="" width="1280" height="720" loading="lazy"><span class="bk-play" aria-hidden="true"></span></button>
+          <button class="bk-v" type="button" data-v="2" data-b="Mimo Style" aria-label="Assistir: caçarolas Mimo Style"><img src="assets/img/vid-3.jpg" alt="" width="1280" height="720" loading="lazy"><span class="bk-play" aria-hidden="true"></span></button>
         </div>
-        <h3>Vídeos</h3><p>Vídeos curtos dos produtos para usar nos stories e na loja.</p>
-        <div class="bk-act"><span class="mt-soon">Em breve</span></div>
+        <div class="bk-none" id="bkNone" hidden><span><svg class="ic" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M216,42H40A14,14,0,0,0,26,56V200a14,14,0,0,0,14,14H216a14,14,0,0,0,14-14V56A14,14,0,0,0,216,42ZM40,54H216a2,2,0,0,1,2,2V163.57L188.53,134.1a14,14,0,0,0-19.8,0l-21.42,21.42L101.9,110.1a14,14,0,0,0-19.8,0L38,154.2V56A2,2,0,0,1,40,54ZM38,200V171.17l52.58-52.58a2,2,0,0,1,2.84,0L176.83,202H40A2,2,0,0,1,38,200Zm178,2H193.8l-38-38,21.41-21.42a2,2,0,0,1,2.83,0l38,38V200A2,2,0,0,1,216,202ZM146,100a10,10,0,1,1,10,10A10,10,0,0,1,146,100Z"/></svg></span><b>Vídeos desta marca a receber</b><small>Peça pelo WhatsApp e a Fran envia os que já tem.</small></div>
+        <h3>Vídeos <span class="bk-of" id="bkOfV" translate="no"></span></h3><p>Vídeos curtos dos produtos para usar nos stories e na loja.</p>
+        <div class="bk-act"><span class="mt-soon" id="bkSoonV">Em breve</span><a class="cv-go bk-dl" id="bkDlV" href="#" target="_blank" rel="noopener" hidden>Baixar vídeos</a></div>
       </div>
     </div>
   </div>
@@ -2048,6 +2060,37 @@ var ICON_PLAY='<svg class="ic" aria-hidden="true" viewBox="0 0 256 256" fill="cu
   show('*');
   if(!fromHash()) {}
   window.addEventListener('hashchange',fromHash);
+})();
+/* v2: banco de imagens e vídeos filtrado por marca */
+(function(){
+  var box=document.getElementById('bkBox'); if(!box) return;
+  var chips=[].slice.call(document.querySelectorAll('.bk-chips .ln-chip'));
+  var mos=box.querySelector('.bk-mosaic'), slots=[].slice.call(mos.querySelectorAll('img')), def=slots.map(function(i){return i.getAttribute('src');});
+  var vids=[].slice.call(box.querySelectorAll('.bk-v')), none=document.getElementById('bkNone');
+  var links={}; try{links=JSON.parse(document.getElementById('bkLinks').textContent);}catch(e){}
+  function $(id){return document.getElementById(id);}
+  function wide(list){vids.forEach(function(v){v.classList.remove('is-wide');}); if(list.length%2===1) list[0].classList.add('is-wide');}
+  function setLink(k,url){var a=$('bkDl'+k), s=$('bkSoon'+k); if(url){a.href=url;a.hidden=false;s.hidden=true;}else{a.hidden=true;s.hidden=false;}}
+  function pick(b){
+    var seen={}, out=[];
+    [].forEach.call(document.querySelectorAll('#lnGrid .ln[data-b="'+b+'"] img, .cv-hit[data-goto="'+b+'"] img'),function(i){var u=i.getAttribute('src'); if(u&&!seen[u]){seen[u]=1;out.push(u);}});
+    return out.slice(0,4);
+  }
+  function show(f){
+    chips.forEach(function(c){c.setAttribute('aria-pressed',c.dataset.f===f);});
+    var all=f==='*', imgs=all?def:pick(f); if(!imgs.length) imgs=def;
+    mos.className='bk-mosaic n'+imgs.length;
+    slots.forEach(function(el,i){ if(i<imgs.length){el.loading='eager'; el.src=imgs[i]; el.hidden=false;} else el.hidden=true; });
+    var vis=[];
+    vids.forEach(function(v){var on=all||v.dataset.b===f; if(!on){var m=v.querySelector('video'); if(m){m.pause(); v.classList.remove('playing');}} v.hidden=!on; if(on) vis.push(v);});
+    if(vis.length) wide(vis);
+    none.hidden=vis.length>0;
+    $('bkOfI').textContent=all?'':'da '+f; $('bkOfV').textContent=all?'':'da '+f;
+    $('bkTxtI').textContent=all?'Fotos de produto e de ambiente, separadas por marca e por linha.':'Fotos de produto e de ambiente da '+f+' para usar na loja e nas redes.';
+    var l=links[f]||{}; setLink('I',all?'':l.i); setLink('V',all?'':l.v);
+  }
+  chips.forEach(function(c){c.addEventListener('click',function(){show(c.dataset.f);});});
+  show('*');
 })();
 /* v2: vídeos tocam no próprio cartão, reaproveitando os vídeos do topo */
 (function(){

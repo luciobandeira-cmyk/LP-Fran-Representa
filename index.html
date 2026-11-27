@@ -2035,7 +2035,7 @@ var ICON_PLAY='<svg class="ic" aria-hidden="true" viewBox="0 0 256 256" fill="cu
 <script>
 /* v2: filtro das linhas por marca */
 (function(){
-  var chips=[].slice.call(document.querySelectorAll('.ln-chip')), tiles=[].slice.call(document.querySelectorAll('#lnGrid .ln')), note=document.getElementById('lnNote'); if(!chips.length) return;
+  var chips=[].slice.call(document.querySelectorAll('#linhas .ln-chip')), tiles=[].slice.call(document.querySelectorAll('#lnGrid .ln')), note=document.getElementById('lnNote'); if(!chips.length) return;
   function show(f){
     chips.forEach(function(c){c.setAttribute('aria-pressed',c.dataset.f===f);});
     var empty=false;

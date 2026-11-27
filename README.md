@@ -18,3 +18,11 @@ Os trechos marcados em destaque tracejado na página aguardam confirmação da F
 ## Formulário
 
 Hoje o formulário valida os dados e mostra a mensagem de sucesso com o link do WhatsApp. Para receber os cadastros, ligar o envio a um CRM, planilha ou webhook no ponto marcado no código ("Na publicação: enviar lead ao CRM").
+
+## Versões
+
+- Página principal (raiz): versão 2, no formato da Área do Representante.
+- `/v1/`: versão anterior (editorial), guardada para comparação.
+- `/v2/` redireciona para a raiz.
+
+As fotos com prefixo `ex-` são exemplos provisórios da internet e devem ser trocadas pelas fotos oficiais das marcas.
